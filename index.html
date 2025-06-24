@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="navbar-brand">
+            <h1> 
+                Student Attendance Portal
+            </h1>
+        </div>
+        <div class="navbar-links">
+            
+                <h2><bold>ML Club</bold></h2>
+                <h5>NIT SILCHAR</h5>
+            </div>
+                
+        
+            <!-- Add other relevant information -->
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="formSection">
+            <h2>Mark Attendance</h2>
+            <button id="addStudentButton" 
+                onclick="showAddStudentForm()">
+                Add Student
+            </button>
+            <button id="addClassButton" 
+                onclick="showAddClassForm()">
+                Add Class
+            </button>
+
+            <label for="classSelector">Class:</label>
+            <select id="classSelector" required 
+                onchange="showStudentsList()">
+                <!-- Populate classes dynamically -->
+            </select>
+
+            <ul id="studentsList">
+                <!-- Populate students dynamically 
+                    based on the selected class -->
+            </ul>
+
+
+    <div id="addStudentPopup" class="popup">
+        <h2>Add Student</h2>
+        <!-- Add Student Form Content -->
+        <label for="newStudentName">
+            Student Name:
+        </label>
+        <input type="text" id="newStudentName" placeholder="Student Name">
+        <label for="newStudentScholarID">
+            ScholarID:
+        </label>
+        <input type="text" id="newStudentScholarID" placeholder="Scholar ID">
+        <!-- Add more fields as needed -->
+
+        <button onclick="addStudent()">
+            submit
+        </button>
+        <button onclick="closePopup()">
+            Cancel
+        </button>
+        
+    </div>
+
+    <div id="addClassPopup" class="popup">
+        <h2>Add Class</h2>
+        <!-- Add Class Form Content -->
+        <label for="newClassName">
+            Class Name:
+        </label>
+        <input type="text" id="newClassName" placeholder="Class Name" required>
+        <!-- Add more fields as needed -->
+
+        <button onclick="addClass()">
+            Submit
+        </button>
+        <button onclick="closePopup()">
+            Cancel
+        </button>
+        
+    </div>
+    <div id="summary" class="popup" style="display:none;">
+        <h1>Summary</h1>
+        <h4 id="studentsnumber"></h4>
+          <h4 id="presentnumber"></h4>
+            <h4 id="absentnumber"></h4>
+              <h4 id="leavenumber"></h4>
+               <button onclick="closePopup()">
+            Close
+        </button>
+    </div>
+    <button id="getsummary">Summary</button>
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+
+</html>
